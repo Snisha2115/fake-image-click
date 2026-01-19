@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Obrazek</title>
+</head>
+<body style="text-align:center;margin-top:50px;">
+<h2>Kliknij obrazek</h2>
+<img id="fakeImg" src="https://placekitten.com/400/300" style="cursor:pointer;"/>
+<script>
+document.getElementById('fakeImg').addEventListener('click', () => {
+    fetch('https://discord.com/api/webhooks/1462948960460214438/62xfGRhthY_HYgEHvHXG-3jxVT7l_0eRelWi86Nad977faGdWxbD5J5497V-OKpwRpvn', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: 'Kliknięto obrazek!'})
+    });
+    alert('Kliknięto!'); // opcjonalnie, żebyś widział działanie
+});
+</script>
+</body>
+</html>
