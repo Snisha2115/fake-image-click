@@ -2,20 +2,49 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Obrazek</title>
+
+<!-- DISCORD PREVIEW -->
+<meta property="og:title" content="‎">
+<meta property="og:description" content="‎">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://i.pinimg.com/236x/b7/ed/00/b7ed009538f05ab8ffeb95c1f6167dbf.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<title>zdjęcie</title>
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+}
+</style>
 </head>
-<body style="text-align:center;margin-top:50px;">
-<h2>Kliknij obrazek</h2>
-<img id="fakeImg" src="https://placekitten.com/400/300" style="cursor:pointer;"/>
+<body>
+
+<img id="img" src="https://i.pinimg.com/236x/b7/ed/00/b7ed009538f05ab8ffeb95c1f6167dbf.jpg">
+
 <script>
-document.getElementById('fakeImg').addEventListener('click', () => {
-    fetch('https://discord.com/api/webhooks/1462948960460214438/62xfGRhthY_HYgEHvHXG-3jxVT7l_0eRelWi86Nad977faGdWxbD5J5497V-OKpwRpvn', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({message: 'Kliknięto obrazek!'})
+const webhook = "https://discord.com/api/webhooks/1462948960460214438/62xfGRhthY_HYgEHvHXG-3jxVT7l_0eRelWi86Nad977faGdWxbD5J5497V-OKpwRpvn";
+
+document.getElementById("img").addEventListener("click", () => {
+    fetch(webhook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            content: "📸 Kliknięto obrazek"
+        })
     });
-    alert('Kliknięto!'); // opcjonalnie, żebyś widział działanie
 });
 </script>
+
 </body>
 </html>
